@@ -1,80 +1,87 @@
 /**
- * Activity 1: For loop
+ * Activity 1: Function Declaration
  */
 //Task 1:
-for (let i = 1; i < 11; i++) {
-  console.log(i);
+function evenOddFunction(num) {
+  num % 2 === 0
+    ? console.log(`Number ${num} is even`)
+    : console.log(`Number ${num} is odd`);
 }
+evenOddFunction(34);
 
 //Task 2:
-for (let i = 1; i < 11; i++) {
-  console.log(`${5} x ${i} = `, i * 5);
+let number = 12;
+function calculateSquare(num) {
+  return num * num;
 }
-//-----------------------------------------------------
+console.log(`Square of ${number} is`, calculateSquare(number));
+//-------------------------------------------------------------------------
 
 /**
- * Activity 2: While loop
+ * Activity 2: Function Expression
  */
 //Task 3:
-let calNumbers = 0;
-let i = 1;
-while (i <= 10) {
-  calNumbers = calNumbers + i;
-  i++;
-}
-console.log(calNumbers);
+const maxNumber = function (n1, n2) {
+  return n1 > n2
+    ? console.log(`${n1} is maximum`)
+    : console.log(`${n2} is maximum`);
+};
+maxNumber(22, 4);
 
 //Task 4:
-let decNumber = 10;
-while (decNumber > 0) {
-  console.log(decNumber);
-  decNumber--;
-}
-//-----------------------------------------------------
+let string1 = "Ghayas";
+let string2 = " Mohsin";
+const concatString = function (str1, str2) {
+  return str1 + str2;
+};
+console.log(concatString(string1, string2));
+//-------------------------------------------------------------------------
 
 /**
- * Activity 3: do-while loop
+ * Activity 3: Arrow Functions
  */
 //Task 5:
-let doWhileNum = 1;
-do {
-  console.log(doWhileNum);
-  doWhileNum++;
-} while (doWhileNum <= 5);
+let sum = (n1, n2) => n1 + n2;
+console.log(sum(2, 4));
 
 //Task 6:
-let counter = 1;
-let doWhileFactorial = 6;
-let value = 1;
-do {
-  value = counter * value;
-  counter++;
-} while (counter <= doWhileFactorial);
-console.log(`Factorial for ${doWhileFactorial} is ${value}`);
-//-----------------------------------------------------
+let isExists = (s1, s2) => s1.includes(s2);
+console.log(isExists("Ghayas Mohsin", "str"));
+//-------------------------------------------------------------------------
 
 /**
- * Activity 4: do-while loop
+ * Activity 4: Function Parameters and Default Values
  */
 //Task 7:
-let stars = "";
-for (let i = 1; i <= 5; i++) {
-  stars += "*";
-  console.log(stars);
-}
-//-----------------------------------------------------
+let defaultProduct = (d1, d2 = 5) => d1 * d2;
+console.log(defaultProduct(1));
+
+//Task 8:
+let defaultPerson = (pName, pAge = 18) =>
+  `AsalamuAlaikum ${pName}! Welcome to our company. your age ${pAge} best suits this position.`;
+console.log(defaultPerson("Ghayas"));
+//-------------------------------------------------------------------------
 
 /**
- * Activity 8: loop control statements
+ * Activity 5: Higher-Order Functions
  */
-//Task 8: skip number 5
-for (let i = 1; i <= 10; i++) {
-  if (i === 5) continue;
-  console.log(i);
+//Task 9:
+function higherOrderFunction(fnc, nmbr) {
+  for (let index = 0; index < nmbr; index++) {
+    fnc();
+  }
 }
+higherOrderFunction(() => {
+  console.log("Ghayas Mohsin is a backend developer");
+}, 10);
 
-//Task 9: stop at number 7
-for (let i = 1; i <= 10; i++) {
-  if (i === 7) break;
-  console.log(i);
+//Task 10:
+function higherOrderT2(fnc1, func2, nmbr) {
+  let res = fnc1(nmbr);
+  func2(res);
 }
+higherOrderT2(
+  (n) => n * n,
+  (r) => console.log(`${r} is the final result`),
+  10
+);
